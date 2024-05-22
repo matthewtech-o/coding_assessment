@@ -8,8 +8,8 @@ import streamlit as st
 import joblib
 
 # Load your pre-trained model
-model = joblib.load('/Users/matthewoladiran/Downloads/classifier_model.pkl')
-vectorizer = joblib.load('/Users/matthewoladiran/Downloads/tfidf_vectorizer.pkl') 
+model = joblib.load('https://github.com/matthewtech-o/coding_assessment/blob/main/classifier_model.pkl')
+vectorizer = joblib.load('https://github.com/matthewtech-o/coding_assessment/blob/main/tfidf_vectorizer.pkl') 
 
 # Define a function to classify the input comments
 def classify_comment(comment):
