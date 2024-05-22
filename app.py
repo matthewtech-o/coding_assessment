@@ -11,7 +11,7 @@ import requests
 
 # URLs of the model and vectorizer
 model_url = 'https://github.com/matthewtech-o/coding_assessment/blob/main/classifier_model.pkl'
-vectorizer_url = 'https://github.com/matthewtech-o/coding_assessment/blob/main/vectorizer.pkl'
+vectorizer_url = 'https://github.com/matthewtech-o/coding_assessment/blob/main/tfidf_vectorizer.pkl'
 
 # Local paths to save the downloaded files
 model_path = '/tmp/classifier_model.pkl'
