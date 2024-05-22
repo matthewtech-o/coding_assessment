@@ -6,6 +6,7 @@
 
 import streamlit as st
 import joblib
+import requests
 
 
 # URLs of the model and vectorizer
