@@ -7,9 +7,31 @@
 import streamlit as st
 import joblib
 
-# Load your pre-trained model
-model = joblib.load('https://github.com/matthewtech-o/coding_assessment/blob/main/classifier_model.pkl')
-vectorizer = joblib.load('https://github.com/matthewtech-o/coding_assessment/blob/main/tfidf_vectorizer.pkl') 
+
+# URLs of the model and vectorizer
+model_url = 'https://github.com/matthewtech-o/coding_assessment/blob/main/classifier_model.pkl'
+vectorizer_url = 'https://github.com/matthewtech-o/coding_assessment/blob/main/vectorizer.pkl'
+
+# Local paths to save the downloaded files
+model_path = '/tmp/classifier_model.pkl'
+vectorizer_path = '/tmp/vectorizer.pkl'
+
+# Function to download a file from a URL and save it locally
+def download_file(url, local_path):
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open(local_path, 'wb') as f:
+            f.write(response.content)
+    else:
+        raise Exception(f"Failed to download file from {url}")
+
+# Download the model and vectorizer
+download_file(model_url, model_path)
+download_file(vectorizer_url, vectorizer_path)
+
+# Load your pre-trained model and vectorizer
+model = joblib.load(model_path)
+vectorizer = joblib.load(vectorizer_path)
 
 # Define a function to classify the input comments
 def classify_comment(comment):
